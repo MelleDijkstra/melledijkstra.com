@@ -1,5 +1,5 @@
 {% if include.story.language != nil %}
-    {% capture cardStyling %}style='border-bottom: 3px solid #{{ include.story.language.color }};'{% endcapture %}
+    {% capture cardStyling %}style='border-bottom: 3px solid #ad9977;'{% endcapture %}
 {% else %}
     {%- assign cardStyling = "" -%}
 {% endif %}
@@ -8,28 +8,28 @@
         <a href="{{ include.story.url }}">
             <div class="trim">
                 <img class="image center-block img-responsive"
-                     src="/assets/images/stories/{{ include.story.image }}"
+                     src="{{ include.story.image }}"
                      alt="story image"/>
             </div>
         </a>
         <div class="card-content" {{ cardStyling }}>
             {% if include.story.language != nil %}
             <small class="programming-language-tooltip"
-                   style="background-color: #{{ include.story.language.color }};"
+                   style="background-color: #ad9977;"
             >{{ include.story.language.name }}</small>
             {% endif %}
             <h2 class="title">
-                <a data-pjax="0" href="{{ include.story.url }}">{{ include.story.title }}</a>
+                <a href="{{ include.story.url }}">{{ include.story.title }}</a>
             </h2>
             <div class="info">
                 <div class="time">
                     <span class="mdi mdi-clock"></span> {{ include.story.date | date: '%e %b %Y %R' }}
                 </div>
-                {% if include.story.categories %}
+                {% if include.story.tags %}
                 <div class="categories">
                     <span class="mdi mdi-tag"></span>
                     <small>
-                        {{ include.story.categories | join: ', ' }}
+                        {{ include.story.tags | join: ', ' }}
                     </small>
                 </div>
                 {% endif %}
